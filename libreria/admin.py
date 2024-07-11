@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import NavItem, Autor, Categoria, Libro
+from .models import *
 
 # Register your models here.
 
-admin.site.register(NavItem)
-admin.site.register(Autor)
-admin.site.register(Categoria)
-admin.site.register(Libro)
+admin.site.register(Navbar)
+admin.site.register(Autores)
+admin.site.register(Categorias)
+admin.site.register(Libros)
 

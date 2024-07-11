@@ -1,0 +1,36 @@
+/* Tipografía cursiva para texto de imagenes */
+@import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
+/* Tipografía para textos y navbar*/
+@import url('https://fonts.googleapis.com/css2?family=Margarine&family=Signika+Negative:wght@300..700&display=swap');
+
+/*Color del navbar*/
+.bg-pink{
+    background-color: #326173;
+    color: #F29BB2;
+}
+.navbar{
+    font-family: 'Signika', sans-serif;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #F29BB2;
+}
+/*Color icono*/
+.fa-house{
+    color: #F29BB2;
+}
+
+/*Color cuerpo*/
+body{
+    background-color: #C1D4D9;
+}
+
+h3{
+    font-family: 'swap', sans-serif;
+    color: #853248;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+a{
+    color: antiquewhite;
+}
