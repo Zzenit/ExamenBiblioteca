@@ -12,7 +12,7 @@ CREANDO UN REPOSITORIO DESDE 0
 
 -  ejecutamos pip install -r requirements.txt para instalar las dependencias de Django en la carpeta raiz
 
-- dentro del Examenbiblioteca, ejecutar python manage.py runserver
+- dentro del ExamenBiblioteca, ejecutar python manage.py runserver
 
 
 TRAYENDO UN REPOSITORIO CON DJANGO YA INSTALADO
@@ -20,7 +20,7 @@ TRAYENDO UN REPOSITORIO CON DJANGO YA INSTALADO
   . python -m venv myvenv (para recrear el myvenv) dentro del repositorio
   . ir a activar (en myvenv/Scripts) => .\activate
   . pip install -r requirements.txt (en el directorio raiz del repositorio)
-  . dentro del Examenbiblioteca, ejecutar python manage.py runserver
+  . dentro del ExamenBiblioteca, ejecutar python manage.py runserver
 
 
  -------------------------------------------
