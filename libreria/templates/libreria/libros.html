@@ -1,61 +1,122 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libros</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static '\libreria\css\style.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Biblioteca</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!--Navbar-->
+    <div data-aos="fade-down">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #326173;">
+        <a class="navbar-brand" href="{% url 'index' %}" style="color: white;"><i class="fa-solid fa-house"></i></a>
+        <a href="index.html">
+            <img src="https://cdn-icons-png.flaticon.com/512/6982/6982814.png" alt="" width="60" height="60" class="custom-logo" style="margin-right: 15px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% if navbar %}
-                {% for nav in navbar %}    
-                <li class="nav-item">
-                    <a class="nav-link" href="{{nav.url_nav}}">{{nav.nombre_nav}}</a>
-                </li>
-                {% endfor %}
-            {% endif %}
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            {% for nav in navbar %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ nav.url_nav }}" style="color: white;">{{ nav.nom_nav }} <span class="sr-only">(current)</span></a>
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+        </nav>
+    </div>
+
+    <!--Container-->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 my-2">
+          <div class="card bg-dark text-white">
+            <img src="{% static 'libreria/images/4.jpg' %}" class="card-img" alt="..." height="450">
+            <div class="card-img-overlay d-flex align-items-center justify-content-center" style="padding-right: 50px;">
+              <h1 class="display-6" style="color: #941414;"> <strong>Nuestros Libros</strong></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Haz click en el siguiente botón para desplegar la lista de libros</h2>
+        </div>
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-lg btn-block" style="background-color: #326173; color: #ffffff;">Desplegar</button>            
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Título</th>
+                <th scope="col">Año de publicación</th>
+                <th scope="col">Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+      
+
+      <!--Información-->
+      <div class="row" style="background-color: #326173; padding: 20px;" data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000">
+        <div class="col-lg-4 text-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/2421/2421729.png" alt="" width="100px" >
+        </div>
+
+        <div class="col-lg-4">
+          <h4 style="color: azure;">Nuestros catálogos</h4>
+          <ul class="list-unstyled" style="color: azure;">
+            <li><a href="{% url 'libros' %}"><i class="fa-solid fa-book"></i> Lista de Libros</a></li>
+            <li><a href="{% url 'autores' %}"><i class="fa-solid fa-feather"></i> Lista de Autores</a></li>
+            <li><a href="{% url 'categorias' %}"><i class="fa-solid fa-table-list"></i></i> Lista de Géneros</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+            <h4 style="color: azure;">Nuestras redes sociales</h4>
+            <ul class="list-unstyled" style="color: azure;">
+              <li><i class="fa-brands fa-twitter"></i> Twiter: @Libreria_Barrio</li>
+              <li><i class="fa-brands fa-square-facebook"></i> Facebook: Libreria Barrio</li>
+              <li><i class="fa-brands fa-square-instagram"></i> Instagram: Libreria_Barrio </li>
             </ul>
           </div>
         </div>
-    </nav>
-
-
-    <div class="container">
-        <h2>Catálogo de Libros</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Año de Publicación</th>
-                    <th>Autor</th>
-                    <th>Categoría</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for libro in libros %}
-                <tr>
-                    <td>{{ libro.titulo }}</td>
-                    <td>{{ libro.año_publicacion }}</td>
-                    <td>{{ libro.autor.nombre }}</td>
-                    <td>{{ libro.categoria.nombre }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+      </div>
 
     <!-- Bootstrap JS y dependencias -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        AOS.init();
+      </script>
+
 </body>
 </html>
