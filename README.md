@@ -3,9 +3,9 @@ CREANDO UN REPOSITORIO DESDE 0
     . "Archivo" -> Abrir Windows PowerShell -> abrir como administrador.
   
 - Se debe crear el ambiente virtual para que las dependencias queden isoladas de otros proyectos:
-		. python -m venv myvenv
-		. activar el ambiente virtual antes de instalar las dependencias: en myvenv/Scripts ejecutar .\activate
-		. actualizar PIP: python -m pip install --upgrade pip
+  . python -m venv myvenv
+  . activar el ambiente virtual antes de instalar las dependencias: en myvenv/Scripts ejecutar .\activate
+  . actualizar PIP: python -m pip install --upgrade pip
   
 -  al crear el archivo requirements.txt al lado de myvenv para indicar las dependencias del actual proyecto.
   Para instalar Django, dentro del archivo requirements.txt registramos Django==4.1.2
